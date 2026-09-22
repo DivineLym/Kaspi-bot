@@ -14,6 +14,11 @@ from selenium.webdriver.support import expected_conditions as EC
 import pandas as pd
 from selenium.common.exceptions import TimeoutException
 import string
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 
 
@@ -120,7 +125,7 @@ chrome_options.add_argument("--start-maximized")  # Открыть на весь
 service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service, options=chrome_options)
 
-phone_number="7750564581"
+phone_number = os.getenv("PHONE_NUMBER")
 login(driver, phone_number)
 
 
